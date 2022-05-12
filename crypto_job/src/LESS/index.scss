@@ -26,27 +26,8 @@ a {
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-$color-green: #00906d;
-$color-fon: #1d1b28;
-$color-red: #9f2441;
-$color-white: #fff;
-
-@mixin plus-minus-style {
-  background: $color-green;
-  color: $color-red;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-@mixin select-style {
-  background: $color-green;
-  border-radius: 3px;
-  font-size: 18px;
-  padding: 7px 10px 6px 10px;
-  border: .5px solid #9f2441;
-  cursor: pointer;
-}
-
+@import './peremen/color.scss';
+@import './mixins/mixins.scss';
 
 * {
   color: $color-white;
@@ -60,252 +41,81 @@ $color-white: #fff;
   background: $color-fon;
 }
 
-.header {
-  width: 100%;
-  height: 40px;
-  background: $color-green;
-
-  &__nav {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding: 0 50px;
-  }
-
-  &__nav-item {
-    margin-right: 20px;
-    padding: 5px 8px;
-    font-size: 16px;
-    line-height: 1.1;
-    white-space: nowrap;
-    cursor: pointer;
-    transition: .3s;
-
-    &:hover {
-      background: $color-red;
-    }
-  }
-
-  ._active-nav {
-    border-bottom: 2px solid $color-red;
-  }
-}
+@import './Blocks/header.scss';
 
 .main {
   padding: 50px;
+  height: calc(100% - 40px);
+  box-sizing: border-box;
 }
 
-.converter-page {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  display: none;
+@import './Blocks/convert-page.scss';
 
-  &__item {
-    height: 50%;
+@import './Blocks/convert-currency.scss';
 
-    &:first-child {
-      border: 1px solid $color-red;
-      border-radius: 5px;
-      background: #1b1a24;
-    }
-  }
-}
-
-.convert-currency {
-  padding: 20px 30px;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-
-  &__input {
-    margin-right: 15px;
-    background: #00000000;
-    border: .5px solid rgba(222, 222, 222, 0.368);
-    font-size: 18px;
-    line-height: 1.2;
-    border-radius: 2px;
-    padding: 8px 16px;
-  }
-
-  &__select {
-    @include select-style()
-  }
-}
-
-.portfolio-page {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+@import './Blocks/portfolio-page.scss';
 
 h2 {
-  background: -webkit-linear-gradient(360deg, #302e45, $color-red);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .evaluation-title {
-  font-weight: bold;
-  font-size: 32px;
+  font-weight: normal;
+  font-size: 26px;
   display: inline-block;
-  margin-bottom: 35px;
+  color: $color-white;
+  margin-bottom: 20px;
 }
 
 .porfolio-main-content {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: flex-start;
 }
 
 .currency-case {
-  width: 70%;
-  padding: 20px 30px;
-  border: 2px solid $color-white;
-  border-radius: 20px;
+  margin-top: -50px;
+  padding: 20px 15px 0px;
+  border: 2px solid $color-red;
   position: relative;
   background: $color-fon;
   z-index: 1;
+  width: 45%;
+  margin-right: 70px;
 }
 
-.cicle {
-  z-index: 1;
-  position: relative;
-  top: -25px;
-  left: -50px;
-
-  &__big {
-    padding: 20px;
-    width: 60px;
-    height: 60px;
-    border: 3px solid $color-white;
-    border-radius: 30px;
-    position: absolute;
-  }
-
-  &__min {
-    padding: 20px;
-    width: 40px;
-    height: 40px;
-    border: 3px solid $color-white;
-    border-radius: 30px;
-    position: absolute;
-    top: 6px;
-    left: 7.4px;
-  }
+.currency-graph {
+  width: 30%;
 }
 
-.currency {
-  margin-bottom: 15px;
+@import './Blocks/currency.scss';
 
-  &__text {
-    text-align: center;
-    font-size: 28px;
-    font-weight: bold;
-    color: $color-red
-  }
-}
-
-.change-currency {
-
-  &__header-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid $color-green;
-    padding: 2px 5px;
-    border-radius: 7px;
-    cursor: pointer;
-    z-index: 1;
-  }
-
-  &__text {
-    color: $color-white;
-    line-height: 1.1;
-  }
-
-  &__btn {
-    transform: rotate(90deg);
-  }
-
-  &__main-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-    text-align: center;
-    background: $color-green;
-    margin-top: -2px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    z-index: 0;
-    height: 0;
-    opacity: 0;
-  }
-}
+@import './Blocks/change-currency.scss';
 
 .arow {
   width: 16px;
   filter: invert(90%);
 }
 
-.currency-operator {
-  margin: 20px 0 0 0;
+@import './Blocks/currency-operator.scss';
 
-  &__input-wrapper {
-    display: flex;
-    align-items: stretch;
-    justify-content: center;
-    outline: 1px solid $color-red;
-    border-radius: 3px;
-  }
+.png-img {
+  display: none;
+}
 
-  &__plus-minus {
-    width: 20px;
-  }
 
-  &__plus {
-    @include plus-minus-style();
-    border-top-left-radius: 2px;
+._chosen-sign {
+  background: $color-red  !important;
+}
 
-    border-bottom: .5px solid $color-red;
-  }
+._btn-dis-rotate {
+  transform: rotate(0deg);
+}
 
-  &__minus {
-    @include plus-minus-style();
-    border-bottom-left-radius: 2px;
-    border-top: .5px solid $color-red;
-
-  }
-
-  &__input {
-    background: $color-fon;
-    padding: 0 15px;
-  }
-
-  &__btn {
-    background-color: #181633;
-    text-align: center;
-    display: inline-block;
-    padding: 0 10px;
-
-    &>span {
-      display: inline;
-      vertical-align: -65%
-    }
-  }
-
-  &__select {
-    @include select-style();
-    background: $color-red;
-    padding-right: 40px;
-    padding-left: 40px;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-  }
+._open-block-math {
+  height: 125px !important;
+  opacity: 1 !important;
+  z-index: 1 !important;
 }

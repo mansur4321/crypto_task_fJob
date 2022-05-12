@@ -1,0 +1,50 @@
+.currency-operator {
+
+    &__input-wrapper {
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+        border-radius: 3px;
+    }
+
+    &__plus-minus {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+
+    &__plus {
+        @include plus-minus-style();
+        margin-right: 15px;
+    }
+
+    &__minus {
+        @include plus-minus-style();
+
+    }
+
+    &__input {
+        background: $color-fon;
+        max-width: 100px;
+        padding: 6px 15px;
+        margin-bottom: 10px;
+    }
+
+    &__btn {
+        background-color: #181633;
+        text-align: center;
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 3px
+    }
+
+    &__select {
+        @include select-style();
+        background: $color-red;
+        padding-right: 40px;
+        padding-left: 40px;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+    }
+}

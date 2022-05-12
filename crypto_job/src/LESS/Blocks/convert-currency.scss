@@ -1,0 +1,23 @@
+.convert-currency {
+    padding: 20px 30px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+
+    &__input {
+        margin-right: 15px;
+        background: #00000000;
+        border: .5px solid rgba(222, 222, 222, 0.368);
+        font-size: 18px;
+        line-height: 1.2;
+        padding: 8px 16px;
+    }
+
+    &__select {
+        @include select-style();
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}

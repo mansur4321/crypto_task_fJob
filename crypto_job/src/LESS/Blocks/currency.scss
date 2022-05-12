@@ -1,0 +1,18 @@
+.currency {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+
+    &__text {
+        text-align: left;
+        font-size: 28px;
+        color: $color-white;
+        margin: 0 20px 15px 0;
+    }
+
+    &__image {
+        width: 23px;
+        height: 23px;
+        margin-top: 1px;
+    }
+}
