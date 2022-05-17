@@ -243,9 +243,9 @@ export default {
 
     this.getLineData();
 
-    setTimeout(() => {
-      this.chartBool = true;
-    }, 10);
+    //setTimeout(() => {
+    //  //this.chartBool = true;
+    //}, 10);
     
     setInterval(() => {
       this.getListCoin();
@@ -335,6 +335,7 @@ export default {
         this.BTCDateData.push(dateCurrencyValueB);
         this.ETHDateData.push(dateCurrencyValueE);
       }
+       this.chartBool = true;
     },
 
     getCurentPrice(coinPrice) {
